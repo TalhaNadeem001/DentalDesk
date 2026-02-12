@@ -1,8 +1,10 @@
-# FastAPI Project Starter
+# DentalDesk
 
-A production-ready FastAPI backend boilerplate with async SQLAlchemy, Alembic migrations, and developer tooling.
+A modern patient management system for dental practices with a FastAPI backend and React frontend.
 
 ## Quick Start
+
+### Backend Setup
 
 ```bash
 # Install dependencies
@@ -11,37 +13,79 @@ pip install -r requirements/base.txt
 # Set environment variables (see .env.example if available)
 export DATABASE_URL="postgresql+asyncpg://user:pass@localhost/dbname"
 export REDIS_URL="redis://localhost:6379/0"
+export ENVIRONMENT="development"
 
 # Run the server
 uvicorn src.main:app --reload
 ```
 
+The backend will be available at `http://localhost:8000`
+
+### Frontend Setup
+
+```bash
+# Navigate to frontend directory
+cd frontend
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+The frontend will be available at `http://localhost:5173`
+
+### Full Stack Development
+
+1. Start the backend server (see Backend Setup above)
+2. Start the frontend dev server (see Frontend Setup above)
+3. Open `http://localhost:5173` in your browser
+4. Sign up for a new account or login to access the dashboard
+
 ## Project Structure
 
 ```
-fastapi-backend-boilerplate/
+DentalDesk/
 ├── alembic/              # Database migrations
-│   ├── env.py            # Alembic environment config
-│   ├── script.py.mako    # Migration script template
-│   └── versions/         # Generated migration files
-├── alembic.ini           # Alembic configuration
-├── requirements/
-│   ├── base.txt          # Core dependencies
-│   ├── dev.txt           # Development tools
-│   └── production.txt    # Production extras
-├── scripts/
-│   ├── create_app.py     # Scaffold new app modules
-│   └── init_ai.py        # Initialize AI module structure
-├── src/
-│   ├── config.py         # Pydantic settings (env vars)
-│   ├── constants.py      # Shared constants (e.g. Environment enum)
-│   ├── database.py       # Async SQLAlchemy engine & session
-│   ├── exceptions.py     # Custom exception handlers
-│   ├── main.py           # FastAPI app entry point
-│   └── models.py         # SQLAlchemy models
-└── templates/
-    └── index.html        # Static/HTML templates
+├── frontend/             # React frontend application
+│   ├── src/
+│   │   ├── components/  # Reusable React components
+│   │   ├── contexts/    # React contexts (Auth)
+│   │   ├── pages/       # Page components
+│   │   ├── services/    # API service layer
+│   │   └── types/       # TypeScript types
+│   └── package.json
+├── src/                  # FastAPI backend
+│   ├── auth/            # Authentication module
+│   ├── patients/        # Patient management module
+│   ├── reminders/       # Reminders module
+│   ├── config.py        # Configuration
+│   ├── database.py      # Database setup
+│   └── main.py          # FastAPI app entry point
+└── requirements/        # Python dependencies
 ```
+
+## Features
+
+### Backend (FastAPI)
+- 🔐 Session-based authentication
+- 👥 Patient management with CRUD operations
+- 📋 Patient biodata management
+- 📅 Visit tracking
+- 📝 Record planner
+- 🗄️ Async PostgreSQL with SQLAlchemy
+- 🔄 Redis session storage
+- 📊 OpenAPI/Swagger documentation
+
+### Frontend (React)
+- 🎨 Modern, responsive UI with Tailwind CSS
+- 🔐 Authentication pages (Login/Signup)
+- 📱 Patient dashboard with tabbed interface
+- 📊 Overview with statistics
+- 👤 Patient biodata display
+- 📅 Visit history
+- 📋 Record planner view
 
 ## Scripts
 

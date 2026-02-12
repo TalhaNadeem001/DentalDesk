@@ -1,0 +1,61 @@
+# Code Standards and Formatting Rules
+
+## Clean Code Principles
+
+### Organization and Structure
+- Use classes to group and organize related code - classes should encapsulate related functionality and data
+- Use classes and data structures wherever they make sense - prefer structured data over loose variables
+- Short functions - functions should be concise and focused on a single responsibility
+- Abstraction levels - each function should describe an abstraction; code inside the function should be one level down the abstraction
+- Vertical proximity - dependent functions should be vertically near each other in the file
+- Single Responsibility Principle - each function, class, and module should have one reason to change
+
+### Naming Conventions
+- Descriptive names - names must describe exactly what's going on
+- Long names when necessary - use long names if they help explain the function's purpose
+- Avoid vague names - names must not be vague (avoid `data`, `info`, `stuff`, `thing`, `handle`, `process`)
+- Self-documenting code - use as few comments as possible. If you need a comment to describe functionality, the function names aren't good enough
+- Function arguments - function arguments must be as small as possible (prefer 3 or fewer parameters)
+
+### Additional Clean Code Principles
+- DRY (Don't Repeat Yourself) - avoid code duplication; extract common functionality
+- KISS (Keep It Simple, Stupid) - prefer simple solutions over complex ones
+- YAGNI (You Aren't Gonna Need It) - don't add functionality until it's needed
+- Fail Fast - validate inputs early and fail with clear error messages
+- Error handling - handle errors explicitly; don't ignore exceptions
+- Immutable when possible - prefer immutable data structures to reduce bugs
+- Pure functions - prefer pure functions (no side effects) when possible
+- Avoid deep nesting - limit nesting levels (prefer early returns, guard clauses)
+- Consistent formatting - follow consistent code formatting throughout the project
+
+## FastAPI-Specific Rules
+
+### Router Files (`router.py`)
+- Always functional - code in `router.py` files must always be functional; never add classes
+- Thin controllers - routers should be thin; delegate business logic to services
+- Dependency injection - use FastAPI's dependency injection for shared logic
+- Route organization - group related routes together; use tags appropriately
+
+### Pydantic Usage
+- Aggressively use Pydantic - use Pydantic models for all request/response validation
+- Schema separation - separate create, update, and response schemas
+- Field validation - use Pydantic validators for complex validation logic
+- Nested models - use nested Pydantic models for complex data structures
+- Response models - always specify response models in route decorators
+
+### Additional FastAPI Best Practices
+- Type hints - use type hints everywhere (Python 3.10+ syntax: `str | None` instead of `Optional[str]`)
+- Async/await - use async functions for I/O operations (database, HTTP calls)
+- Status codes - use appropriate HTTP status codes
+- Error responses - use consistent error response formats
+- OpenAPI documentation - leverage FastAPI's automatic OpenAPI generation
+- Dependency organization - keep dependencies in `dependencies.py` files
+- Service layer - business logic belongs in service classes, not routers
+- Database models - use SQLModel for database models (combines SQLAlchemy + Pydantic)
+- Configuration - use Pydantic Settings for configuration management
+- Testing - write tests for all endpoints using TestClient
+
+### Project Structure
+- Module organization - each app module should have: `router.py`, `schema.py`, `models.py`, `service.py`, `dependencies.py`, `exceptions.py`, `config.py`, `constants.py`, `utils.py`
+- Import organization - group imports: standard library, third-party, local imports
+- Circular dependencies - avoid circular dependencies between modules
