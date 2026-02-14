@@ -8,6 +8,7 @@ from src.auth.exceptions import (
     UserNotFoundError,
 )
 from src.config import settings
+from src.auth.constants import SESSION_TTL_SECONDS
 
 router = APIRouter(prefix="/auth", tags=["auth"])
 
@@ -39,7 +40,7 @@ async def login(
             httponly=True,
             secure=settings.ENVIRONMENT == "production",
             samesite="lax",
-            max_age=86400,
+            max_age=SESSION_TTL_SECONDS,
         )
         return LoginResponse(user=user, session_id=session_id)
     except InvalidCredentialsError as e:
@@ -63,9 +64,19 @@ async def logout(
 
 @router.get("/me", response_model=UserResponse)
 async def get_current_user_info(
+    response: Response,
+    session_id: str = Depends(get_current_session_id),
     current_user: UserResponse = Depends(get_current_user),
 ):
-    """Get current user information."""
+    """Get current user information. Refreshes session cookie for sliding expiry."""
+    response.set_cookie(
+        key="session_id",
+        value=session_id,
+        httponly=True,
+        secure=settings.ENVIRONMENT == "production",
+        samesite="lax",
+        max_age=SESSION_TTL_SECONDS,
+    )
     return current_user
 
 

@@ -8,17 +8,29 @@ export default {
   theme: {
     extend: {
       colors: {
+        /* Dentique theme – forest/cream/gold */
         primary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
+          50: '#f7f3ec',
+          100: '#ede7db',
+          200: '#e0d8cc',
+          300: '#2f5e4a',
+          400: '#244839',
+          500: '#1a3328',
+          600: '#1a3328',
+          700: '#0f1f18',
+          800: '#0f1f18',
+          900: '#1a3328',
+        },
+        cream: {
+          DEFAULT: '#f7f3ec',
+          dark: '#ede7db',
+          deeper: '#e0d8cc',
+        },
+        forest: {
+          DEFAULT: '#1a3328',
+          dark: '#0f1f18',
+          mid: '#244839',
+          light: '#2f5e4a',
         },
         teal: {
           50: '#f0fdfa',

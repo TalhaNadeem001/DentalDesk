@@ -3,6 +3,7 @@ from sqlalchemy import select
 from redis.asyncio import Redis
 from src.auth.models import User
 from src.auth.schema import SignUpRequest, UserResponse
+from src.auth.constants import SESSION_TTL_SECONDS
 from src.auth.utils import hash_password, verify_password, generate_session_id
 from src.auth.exceptions import (
     EmailAlreadyExistsError,
@@ -51,7 +52,7 @@ class AuthService:
         
         await self.redis.setex(
             f"session:{session_id}",
-            86400,
+            SESSION_TTL_SECONDS,
             str(user.id),
         )
         
@@ -71,10 +72,11 @@ class AuthService:
         await self.db.commit()
 
     async def get_user_from_session(self, session_id: str) -> UserResponse:
-        user_id_str = await self.redis.get(f"session:{session_id}")
+        key = f"session:{session_id}"
+        user_id_str = await self.redis.get(key)
         if not user_id_str:
             raise SessionNotFoundError("Session not found or expired")
-        
+        await self.redis.expire(key, SESSION_TTL_SECONDS)
         user_id = int(user_id_str)
         user = await self.db.get(User, user_id)
         if not user:

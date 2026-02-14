@@ -1,0 +1,429 @@
+/* Dashboard – same theme as HomePage (Dentique) */
+.dashboard-page {
+  font-family: 'Lato', sans-serif;
+  background: var(--cream);
+  color: var(--charcoal);
+  min-height: 100vh;
+}
+
+.dashboard-header {
+  background: rgba(247, 243, 236, 0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(184, 146, 42, 0.15);
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.06);
+}
+
+.dashboard-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.dashboard-logo-mark {
+  width: 48px;
+  height: 54px;
+  background: var(--forest);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: white;
+}
+
+.dashboard-logo-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: var(--forest);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 2px rgba(26, 51, 40, 0.1);
+}
+
+.dashboard-settings-wrap {
+  position: relative;
+}
+
+.dashboard-btn-settings {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: var(--forest);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.dashboard-btn-settings:hover {
+  background: var(--cream-dark);
+  color: var(--forest-mid);
+}
+
+.dashboard-settings-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 180px;
+  background: var(--white);
+  border: 1px solid var(--cream-deeper);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  z-index: 100;
+}
+
+.dashboard-settings-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 16px;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--forest);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s;
+}
+
+.dashboard-settings-item:hover {
+  background: var(--cream-dark);
+  color: var(--forest-mid);
+}
+
+.dashboard-settings-item + .dashboard-settings-item {
+  border-top: 1px solid var(--cream-deeper);
+}
+
+/* Cards and panels – cream-adjacent surfaces */
+.dashboard-card {
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--cream-deeper);
+}
+
+.dashboard-card-header {
+  border-bottom: 1px solid var(--cream-deeper);
+}
+
+.dashboard-divider {
+  border-color: var(--cream-deeper);
+}
+
+.dashboard-text-heading {
+  color: var(--forest);
+}
+
+.dashboard-text-body {
+  color: var(--body-text);
+}
+
+.dashboard-text-muted {
+  color: var(--muted);
+}
+
+.dashboard-input {
+  border-color: var(--cream-deeper);
+}
+
+.dashboard-input:focus {
+  border-color: var(--forest);
+  box-shadow: 0 0 0 2px rgba(26, 51, 40, 0.15);
+}
+
+.dashboard-loading {
+  background: var(--cream);
+}
+
+.dashboard-loading .animate-spin {
+  border-color: var(--forest);
+  border-top-color: transparent;
+}
+
+/* Patient list search */
+.dashboard-patient-search-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.dashboard-patient-search-icon {
+  position: absolute;
+  left: 14px;
+  width: 20px;
+  height: 20px;
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.dashboard-patient-search-input {
+  width: 100%;
+  padding: 12px 14px 12px 44px;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  color: var(--forest);
+  background: var(--cream);
+  border: 1px solid var(--cream-deeper);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.dashboard-patient-search-input::placeholder {
+  color: var(--muted);
+}
+
+.dashboard-patient-search-input:focus {
+  border-color: var(--forest);
+  box-shadow: 0 0 0 2px rgba(26, 51, 40, 0.12);
+}
+
+/* Add Patient form – same theme as home page */
+.dashboard-form .dashboard-form-section {
+  font-family: 'Lato', sans-serif;
+}
+
+.dashboard-form .dashboard-form-section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: var(--forest);
+  margin-bottom: 1rem;
+}
+
+.dashboard-form .dashboard-form-label {
+  display: block;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--forest);
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-form .dashboard-form-input,
+.dashboard-form .dashboard-form-select,
+.dashboard-form .dashboard-form-textarea {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.1875rem;
+  color: var(--forest);
+  background: var(--cream);
+  border: 1px solid var(--cream-deeper);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.dashboard-form .dashboard-form-input::placeholder,
+.dashboard-form .dashboard-form-textarea::placeholder {
+  color: var(--muted);
+}
+
+.dashboard-form .dashboard-form-input:focus,
+.dashboard-form .dashboard-form-select:focus,
+.dashboard-form .dashboard-form-textarea:focus {
+  border-color: var(--forest);
+  box-shadow: 0 0 0 2px rgba(26, 51, 40, 0.12);
+}
+
+.dashboard-form .dashboard-form-select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%231a3328' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.75rem center;
+  background-repeat: no-repeat;
+  background-size: 1.25em 1.25em;
+  padding-right: 2.5rem;
+}
+
+/* ThemeSelect – custom dropdown, matches dashboard-form-input size */
+.theme-select {
+  position: relative;
+  width: 100%;
+}
+
+.theme-select-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+  min-height: 0;
+  padding: 0.875rem 1rem;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.1875rem;
+  line-height: 1.5;
+  color: var(--forest);
+  background: var(--cream);
+  border: 1px solid var(--cream-deeper);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+}
+
+.theme-select-trigger:focus {
+  outline: none;
+  border-color: var(--forest);
+  box-shadow: 0 0 0 2px rgba(26, 51, 40, 0.12);
+}
+
+.theme-select-trigger:hover {
+  border-color: var(--forest);
+}
+
+.theme-select-trigger .theme-select-placeholder {
+  color: var(--muted);
+}
+
+.theme-select-trigger > span:first-child {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+
+.theme-select-chevron {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--forest);
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+.theme-select-chevron-open {
+  transform: rotate(180deg);
+}
+
+.theme-select-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  max-height: 240px;
+  overflow-y: auto;
+  background: var(--white);
+  border: 1px solid var(--cream-deeper);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+}
+
+.theme-select-option {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.1875rem;
+  color: var(--forest);
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.theme-select-option:hover {
+  background: var(--cream-dark);
+}
+
+.theme-select-option-selected {
+  background: var(--cream-dark);
+  font-weight: 600;
+}
+
+.theme-select-option + .theme-select-option {
+  border-top: 1px solid var(--cream-deeper);
+}
+
+.dashboard-form .dashboard-form-btn-cancel {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--forest-dark);
+  background: transparent;
+  border: 1px solid var(--cream-deeper);
+  padding: 0.875rem 1.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.dashboard-form .dashboard-form-btn-cancel:hover {
+  background: var(--cream-dark);
+  color: var(--forest);
+}
+
+.dashboard-form .dashboard-form-btn-submit {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--cream);
+  background: var(--forest);
+  border: none;
+  padding: 0.875rem 1.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.dashboard-form .dashboard-form-btn-submit:hover:not(:disabled) {
+  background: var(--forest-mid);
+  box-shadow: 0 4px 20px rgba(26, 51, 40, 0.25);
+}
+
+.dashboard-form .dashboard-form-btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Add Patient options card */
+.add-patient-option {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.3125rem;
+  font-weight: 600;
+  color: var(--forest);
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--cream-deeper);
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.add-patient-option:last-child {
+  border-bottom: none;
+}
+
+.add-patient-option:hover:not(:disabled) {
+  background: var(--cream-dark);
+}
+
+.add-patient-option-disabled {
+  color: var(--muted);
+  cursor: not-allowed;
+  opacity: 0.85;
+}
+
+.add-patient-header-back {
+  font-size: 1.25rem;
+}
+
+.add-patient-header-title {
+  font-size: 1.75rem !important;
+}

@@ -2,6 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Dentique theme (shared with HomePage, Login, SignUp, Dashboard) */
+:root {
+  --cream: #f7f3ec;
+  --cream-dark: #ede7db;
+  --cream-deeper: #e0d8cc;
+  --forest: #1a3328;
+  --forest-dark: #0f1f18;
+  --forest-mid: #244839;
+  --forest-light: #2f5e4a;
+  --gold: #b8922a;
+  --gold-light: #d4a843;
+  --gold-pale: rgba(184, 146, 42, 0.12);
+  --charcoal: #2c2c2c;
+  --body-text: #4a4a4a;
+  --muted: #8a8680;
+  --white: #ffffff;
+}
+
+/* Scale UI so 100% looks like 75% zoom (avoids squished/oversized feel at default zoom) */
+html {
+  font-size: 12px;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
